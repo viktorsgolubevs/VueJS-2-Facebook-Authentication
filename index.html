@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width">
+    <title>VueJs - Facebook Authorization</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+
+<div id="app">
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 vuejs-logo"><img src="https://vuejs.org/images/logo.png" alt="" title=""></div>
+            <div class="col-md-12">
+                <router-view></router-view>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <hr>
+        <div class="text-center">Created by Viktors Golubevs - <a href="http://www.viktorsgolubevs.lv" target="_blank">www.viktorsgolubevs.lv</a>
+        </div>
+    </footer>
+</div>
+
+<script type="text/x-template" id="login-template">
+    <div>
+        <h1><i class="fa fa-lock"></i> Social authentification</h1>
+        <div>Login with:</div>
+        <button v-show="!isAuthenticated" class="btn btn--facebook" @click="handleLoginClick"><i
+                class="fa fa-facebook"></i> Login with Facebook
+        </button>
+    </div>
+</script>
+
+<script type="text/x-template" id="dashboard-template">
+    <div>
+        <h2>{{ welcomeMessage }}</h2>
+        <div class="btn btn-danger btn-logout" @click="logoutClick"><i class="fa fa-sign-out"></i> Logout</div>
+    </div>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.0.1/vue-router.js"></script>
+<script src="app.js"></script>
+
+<script>
+    // Facebook Init
+    window.fbAsyncInit = () => {
+        window.FB.init({
+            appId: '513482888815376',
+            xfbml: true,
+            version: 'v2.8'
+        })
+    };
+    // Load the SDK asynchronously
+    (function loadFacebookSDK(d, s, id) {
+        let js
+        let fjs = d.getElementsByTagName(s)[0]
+        if (d.getElementById(id)) return
+        js = d.createElement(s);
+        js.id = id
+        js.src = '//connect.facebook.net/en_US/sdk.js'
+        fjs.parentNode.insertBefore(js, fjs)
+    }(document, 'script', 'facebook-jssdk'))
+</script>
+
+</body>
+</html>

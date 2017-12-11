@@ -1,0 +1,64 @@
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .vuejs-logo img {
+    width: 140px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: 1px solid;
+    border-color: #333;
+}
+
+main .btn--facebook {
+    margin-top: 10px;
+    background-color: #3B5998;
+    border-color: #3B5998;
+    color: white;
+    cursor: pointer;
+}
+
+main .btn--facebook > i {
+    margin-right: 5px;
+}
+
+main .btn-logout {
+    cursor: pointer;
+    border: 0;
+    margin-top: 15px;
+}
+
+footer hr {
+    margin-bottom: 0;
+}
+
+footer div {
+    padding: 17px 0;
+    color: #bbbbbb;
+}
+
+footer div > a {
+    color: #bbbbbb;
+}
+
+footer div > a:hover {
+    text-decoration: none;
+    color: #a9a9a9;
+}
